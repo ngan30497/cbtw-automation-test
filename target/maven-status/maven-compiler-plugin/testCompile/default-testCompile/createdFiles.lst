@@ -1,0 +1,6 @@
+ctflearn\com\data\challenge\ChallengeData.class
+ctflearn\com\tests\challenges\CreateChallengesTests.class
+ctflearn\com\base\BaseTest.class
+ctflearn\com\tests\login\LoginTests.class
+ctflearn\com\data\challenge\ChallengeDataFactory.class
+api\JSONSchemaValidator.class

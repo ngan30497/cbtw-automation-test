@@ -1,17 +1,22 @@
 package ctflearn.com.base;
 
-import common.pages.BasePage;
-import common.pages.LoginPage;
+import ctflearn.com.listeners.AllureTestListener;
+import ctflearn.common.pages.BasePage;
+import ctflearn.common.pages.DashboardPage;
+import ctflearn.common.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 
+@Listeners(AllureTestListener.class)
 public class BaseTest {
 
-    protected WebDriver driver;
+    public WebDriver driver;
     protected BasePage basePage;
     protected LoginPage loginPage;
+    protected DashboardPage dashboardPage;
     private String url = "https://ctflearn.com";
 
     @BeforeTest
@@ -21,9 +26,10 @@ public class BaseTest {
         driver.get(url);
         basePage = new BasePage();
         basePage.setDriver(driver);
+        loginPage = new LoginPage();
     }
 
-    @AfterClass
+//    @AfterClass
     public void tearDown(){
         driver.quit();
     }
