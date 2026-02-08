@@ -42,7 +42,6 @@ public class CreateChallengesTests extends BaseTest {
         DashboardPage dashboardPage = loginPage.logIntoApplication("ngan304", "Password#123");
         assertTrue(dashboardPage.isDashboardDisplayed());
         CreateChallengesPage createChallengesPage = dashboardPage.clickCreateChallenge();
-        createChallengesPage.fillTitle(invalidChallengeData.getTitle());
         createChallengesPage.fillFlag(validChallengeData.getFlag());
         createChallengesPage.fillDescription(validChallengeData.getDescription());
         createChallengesPage.fillHowToSolve(validChallengeData.getSolution());

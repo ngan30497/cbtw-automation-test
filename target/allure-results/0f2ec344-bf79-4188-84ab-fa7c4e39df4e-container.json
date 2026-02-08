@@ -1,0 +1,1 @@
+{"uuid":"0f2ec344-bf79-4188-84ab-fa7c4e39df4e","name":"cbtw-automation-test","children":["daef3449-1610-4c81-be47-a1dfd0a74f12"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1770604165781,"stop":1770604190539}],"afters":[],"start":1770604165752,"stop":1770604243028}
