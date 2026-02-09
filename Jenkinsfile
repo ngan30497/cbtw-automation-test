@@ -2,16 +2,21 @@ pipeline {
     agent any
 
     triggers {
-        cron('* 0 * * 0') // Daily at midnight
-        cron('* 0 * * 5') // Weekly on Fridays at midnight
+        pollSCM('H/5 * * * *') // Poll GitHub every 5 minutes
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Run Tests') {
             steps {
                 script {
                     // Run TestNG tests
-                    sh 'mvn test -DsuiteXmlFile=testng.xml'
+                    sh 'mvn clean test -DsuiteXmlFile=testng.xml'
                 }
             }
         }
@@ -19,8 +24,10 @@ pipeline {
         stage('Generate Allure Report') {
             steps {
                 script {
-                    // Generate Allure reports
-                    sh 'allure generate -o allure-results'
+                    // Generate Allure report
+                    allure includeProperties: false, 
+                           jdk: '', 
+                           results: [[path: 'target/allure-results']]
                 }
             }
         }
@@ -28,8 +35,13 @@ pipeline {
 
     post {
         always {
-            // Archive Allure results
-            allure([$class: 'AllureArchiver', results: 'allure-results'])
+            echo 'Build finished!'
+        }
+        success {
+            echo 'Tests passed successfully!'
+        }
+        failure {
+            echo 'Tests failed!'
         }
     }
 }
