@@ -1,0 +1,29 @@
+# Maven project
+
+# Compiled class file
+*.class
+
+# Log files
+*.log
+
+# Maven target folder
+/target/
+
+# IDE specific files
+*.iml
+.idea/
+
+# Eclipse files
+.classpath
+.project
+.settings/
+
+# IntelliJ files
+*.ipr
+*.iws
+
+# Test reports
+/target/surefire-reports/*.txt
+/target/surefire-reports/*.xml
+/target/failsafe-reports/*.txt
+/target/failsafe-reports/*.xml
