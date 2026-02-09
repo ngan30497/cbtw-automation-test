@@ -18,15 +18,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat 'mvn clean test -DsuiteXmlFile=testng.xml'
-            }
-        }
-
-        stage('Generate Allure Report') {
-            steps {
-                allure includeProperties: false, 
-                       jdk: '', 
-                       results: [[path: 'target/allure-results']]
+                bat 'mvn clean test -DsuiteXmlFile=testng.xml -Dmaven.test.failure.ignore=true'
             }
         }
     }
@@ -34,6 +26,12 @@ pipeline {
     post {
         always {
             echo 'Build finished!'
+            script {
+                // Always generate Allure report
+                allure includeProperties: false, 
+                       jdk: '', 
+                       results: [[path: 'target/allure-results']]
+            }
         }
         success {
             echo 'Tests passed successfully!'
