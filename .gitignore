@@ -21,9 +21,33 @@
 # IntelliJ files
 *.ipr
 *.iws
+compiler.xml
+encodings.xml
+jarRepositories.xml
+misc.xml
+vcs.xml
+workspace.xml
+
+# Allure Reports
+.allure/
+allure-results/
 
 # Test reports
 /target/surefire-reports/*.txt
 /target/surefire-reports/*.xml
 /target/failsafe-reports/*.txt
 /target/failsafe-reports/*.xml
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Build directory
+build/
+dist/
+
+# Misc
+*.swp
+*.swo
+*~
+.tmp
